@@ -1,0 +1,15 @@
+Persons: Id (PK), PersonCode, FirstName, MiddleName, LastName, Email, DOB, DOJ, ContactNumber, EmergencyNumber, BloodGroup, MaritalStatus, Gender, DepartmentId, DesignationId, RoleId, OrganizationId, LoginType, Password, ReportingPerson, IsActive, LastWorkingDay, IsPolicyConsent, PolicyConsentDate, ProfilePicture, CreatedDate, CreatedBy, Otp, QuickOtp
+
+PersonDocument: Id (PK), PersonId, DocumentNumber, ExpiryDate, Remarks, DocumentType, Path, Description
+  - PersonId → Persons.Id (foreign key)
+
+PersonEducations: Id (PK), PersonId, Degree, PassingYear, Grade, Institution, Address
+  - PersonId → Persons.Id (foreign key)
+
+PersonExperiences: Id (PK), PersonId, CompanyName, StartDate, EndDate
+  - PersonId → Persons.Id (foreign key)
+
+PersonFamilyDetails: Id (PK), PersonId, RelationshipType, FirstName, MiddleName, LastName, DOB, ContactNumber, BloodGroup, Gender
+
+PersonSkills: Id (PK), PersonId, SkillName, Proficiency, LastUsedDate, TotalExperience
+  - PersonId → Persons.Id (foreign key)

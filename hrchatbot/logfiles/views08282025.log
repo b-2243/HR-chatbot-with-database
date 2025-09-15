@@ -1,0 +1,705 @@
+views 2025-08-28 11:39:29,498 INFO SELECT cp.Name, cp.Description, pt.Name AS PolicyTypeName, o.Name AS OrganizationName
+FROM CompanyPolicy cp
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id
+JOIN Organizations o ON cp.OrganizationId = o.Id
+WHERE pt.Name = 'Leave & Attendance' AND cp.IsActive = 1;
+views 2025-08-28 11:39:55,609 INFO SELECT DOB 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 11:40:05,516 INFO I can't help you with that request.
+views 2025-08-28 11:40:12,414 INFO SELECT DOB 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 11:41:14,267 INFO SELECT DOJ 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 11:42:11,675 INFO SELECT * 
+FROM PersonFamilyDetails 
+WHERE PersonId = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 11:42:25,309 INFO SELECT pe.Degree, pe.PassingYear, pe.Grade, pe.Institution, pe.Address
+FROM PersonEducations pe
+JOIN Persons p ON pe.PersonId = p.Id
+WHERE p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 11:43:11,829 INFO 
+SELECT pe.*
+FROM PersonExperiences pe
+JOIN Persons p ON pe.PersonId = p.Id
+WHERE p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+
+views 2025-08-28 11:43:19,379 INFO 
+SELECT pe.CompanyName, pe.StartDate, pe.EndDate
+FROM PersonExperiences pe
+JOIN Persons p ON pe.PersonId = p.Id
+WHERE p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+
+views 2025-08-28 11:44:34,638 INFO SELECT * FROM PersonExperiences WHERE PersonId = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 11:44:54,909 INFO SELECT pfd.FirstName, pfd.MiddleName, pfd.LastName 
+FROM PersonFamilyDetails pfd 
+WHERE pfd.PersonId = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A' AND pfd.RelationshipType = 'Father';
+views 2025-08-28 11:45:16,196 INFO SELECT Id 
+FROM Persons
+views 2025-08-28 11:45:40,480 INFO I can't help you with that request.
+views 2025-08-28 11:50:33,085 INFO I can't help you with that request.
+views 2025-08-28 11:50:46,359 INFO I can't help you with that request.
+views 2025-08-28 11:50:52,866 INFO SELECT cp.Name 
+FROM CompanyPolicy cp 
+INNER JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id;
+views 2025-08-28 11:52:13,532 INFO SELECT cp.Description 
+FROM CompanyPolicy cp 
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id 
+WHERE pt.Name = 'Maternity Leave';
+views 2025-08-28 11:52:25,432 INFO SELECT cp.Name 
+FROM CompanyPolicy cp 
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id 
+WHERE pt.Name = 'Maternity Leave' AND cp.IsActive = 1;
+views 2025-08-28 11:54:14,605 INFO SELECT cp.Description, pt.Name AS PolicyTypeName
+FROM CompanyPolicy cp
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id
+WHERE pt.Name = 'EXIT Process';
+views 2025-08-28 11:57:36,705 INFO SELECT cp.Name, cp.Description, pt.Name AS PolicyTypeName
+FROM CompanyPolicy cp
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id
+WHERE pt.Name IN ('Leave', 'Attendance');
+views 2025-08-28 11:58:11,633 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id 
+WHERE pt.Name IN ('Leave', 'Attendance');
+views 2025-08-28 11:58:48,280 INFO SELECT cp.Id, cp.OrganizationId, cp.Name, cp.Description, cp.IsActive
+FROM CompanyPolicy cp
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id
+WHERE pt.Name IN ('Leave', 'Attendance')
+views 2025-08-28 11:59:53,020 INFO SELECT cp.Description, pt.Name AS PolicyTypeName
+FROM CompanyPolicy cp
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id
+WHERE pt.Name = 'EXIT Process';
+views 2025-08-28 12:01:04,731 INFO SELECT cp.Description 
+FROM CompanyPolicy cp 
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id 
+WHERE pt.Name = 'Marriage Leave';
+views 2025-08-28 12:01:22,996 INFO SELECT cp.*
+FROM CompanyPolicy cp
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id
+WHERE pt.Name = 'Marriage Leave' AND cp.IsActive = 1;
+views 2025-08-28 12:01:50,630 INFO SELECT cp.*
+FROM CompanyPolicy cp
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id
+WHERE pt.Name = 'Marriage Leave';
+views 2025-08-28 12:02:38,413 INFO SELECT cp.*
+FROM CompanyPolicy cp
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id
+WHERE pt.Name = 'Marriage Leave';
+views 2025-08-28 12:02:53,168 INFO SELECT cp.*
+FROM CompanyPolicy cp
+JOIN PolicyType pt ON cp.PolicyTypeId = pt.Id
+WHERE pt.Name = 'Marriage Leave';
+views 2025-08-28 12:04:25,146 INFO 
+SELECT cp.Name, cp.Description, cp.IsActive
+FROM CompanyPolicy cp
+WHERE cp.Name = 'Marriage Leave' AND cp.IsActive = 1;
+
+views 2025-08-28 12:05:21,550 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.PolicyTypeId = 'Leave Credit' AND cp.IsActive = 1;
+views 2025-08-28 12:06:18,359 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.PolicyTypeId = 'Leave Carry Forward' AND cp.IsActive = 1;
+views 2025-08-28 12:07:42,500 INFO SELECT cp.Name 
+FROM CompanyPolicy cp 
+JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name LIKE '%Leave Carry Forward%';
+views 2025-08-28 12:08:05,912 INFO SELECT cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.Name = 'Leave Carry Forward' AND cp.IsActive = 1;
+views 2025-08-28 12:08:52,930 INFO SELECT cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.Name = 'Office Timing Policy';
+views 2025-08-28 12:09:54,242 INFO SELECT Id FROM Organizations UNION ALL SELECT Id FROM CompanyPolicy;
+views 2025-08-28 12:10:01,472 INFO I can't help you with that request.
+views 2025-08-28 12:10:10,113 INFO I can't help you with that request.
+views 2025-08-28 12:10:28,127 INFO I can't help you with that request.
+views 2025-08-28 14:02:08,834 INFO I can't help you with that request.
+views 2025-08-28 14:02:15,533 INFO I can't help you with that request.
+views 2025-08-28 14:02:22,722 INFO I can't help you with that request.
+views 2025-08-28 14:03:13,475 INFO I can't help you with that request.
+views 2025-08-28 14:03:18,242 INFO SELECT DOB 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 14:03:34,208 INFO SELECT DOB 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 14:08:41,993 INFO SELECT DOB 
+FROM PersonFamilyDetails 
+WHERE PersonId = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 14:08:51,757 INFO SELECT DOJ 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 14:09:11,189 INFO SELECT TOP 5 cp.Name 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+ORDER BY cp.Id;
+views 2025-08-28 14:10:58,937 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.IsActive = 1 AND cp.PolicyTypeId = 'Leave Credit Policy';
+views 2025-08-28 14:11:24,286 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.PolicyTypeId = 'Leave Credit Policy' AND cp.IsActive = 1;
+views 2025-08-28 14:11:37,992 INFO SELECT cp.Name 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.PolicyTypeId = 'LeaveCredit';
+views 2025-08-28 14:12:32,971 INFO SELECT cp.Name 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.PolicyTypeId = 'LeaveCredit';
+views 2025-08-28 14:13:32,789 INFO SELECT cp.Name 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.PolicyTypeId = 'LeaveCredit';
+views 2025-08-28 14:14:39,665 ERROR Prompt formatting error:Missing placeholder for: '  '
+Traceback (most recent call last):
+  File "D:\hrchatbot\hrchatbot\chatbotmodule\utils\prompts_loader.py", line 17, in get_formatted_prompt
+    return template.format(**kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+KeyError: '  '
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\hrchatbot\hrchatbot\chatbotmodule\views.py", line 168, in query_ssms_with_context_company_policy
+    prompt=get_formatted_prompt(f"status_{status}",schema_context=schema_context, natural_question=natural_question)
+  File "D:\hrchatbot\hrchatbot\chatbotmodule\utils\prompts_loader.py", line 19, in get_formatted_prompt
+    raise ValueError(f"Missing placeholder for: {str(e)}")
+ValueError: Missing placeholder for: '  '
+views 2025-08-28 14:14:39,667 ERROR Prompt formatting error:Missing placeholder for: '  '
+views 2025-08-28 14:14:39,667 CRITICAL Prompt formatting error:Missing placeholder for: '  '
+views 2025-08-28 14:14:39,668 ERROR  LLM Error: cannot access local variable 'prompt' where it is not associated with a value
+Traceback (most recent call last):
+  File "D:\hrchatbot\hrchatbot\chatbotmodule\views.py", line 174, in query_ssms_with_context_company_policy
+    sql_query = llm.invoke(prompt).content.strip().replace("`", "")
+                           ^^^^^^
+UnboundLocalError: cannot access local variable 'prompt' where it is not associated with a value
+views 2025-08-28 14:14:39,668 ERROR  LLM Error: cannot access local variable 'prompt' where it is not associated with a value
+views 2025-08-28 14:14:39,669 CRITICAL  LLM Error: cannot access local variable 'prompt' where it is not associated with a value
+views 2025-08-28 14:14:39,670 ERROR cannot access local variable 'e' where it is not associated with a value
+Traceback (most recent call last):
+  File "D:\hrchatbot\hrchatbot\chatbotmodule\views.py", line 242, in post
+    return Response({"status": "error", "message": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                                                       ^
+UnboundLocalError: cannot access local variable 'e' where it is not associated with a value
+views 2025-08-28 14:14:39,670 ERROR cannot access local variable 'e' where it is not associated with a value
+views 2025-08-28 14:14:39,670 CRITICAL cannot access local variable 'e' where it is not associated with a value
+views 2025-08-28 14:14:52,460 ERROR Prompt formatting error:Missing placeholder for: '  '
+Traceback (most recent call last):
+  File "D:\hrchatbot\hrchatbot\chatbotmodule\utils\prompts_loader.py", line 17, in get_formatted_prompt
+    return template.format(**kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+KeyError: '  '
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\hrchatbot\hrchatbot\chatbotmodule\views.py", line 168, in query_ssms_with_context_company_policy
+    prompt=get_formatted_prompt(f"status_{status}",schema_context=schema_context, natural_question=natural_question)
+  File "D:\hrchatbot\hrchatbot\chatbotmodule\utils\prompts_loader.py", line 19, in get_formatted_prompt
+    raise ValueError(f"Missing placeholder for: {str(e)}")
+ValueError: Missing placeholder for: '  '
+views 2025-08-28 14:14:52,462 ERROR Prompt formatting error:Missing placeholder for: '  '
+views 2025-08-28 14:14:52,462 CRITICAL Prompt formatting error:Missing placeholder for: '  '
+views 2025-08-28 14:14:52,464 ERROR  LLM Error: cannot access local variable 'prompt' where it is not associated with a value
+Traceback (most recent call last):
+  File "D:\hrchatbot\hrchatbot\chatbotmodule\views.py", line 174, in query_ssms_with_context_company_policy
+    sql_query = llm.invoke(prompt).content.strip().replace("`", "")
+                           ^^^^^^
+UnboundLocalError: cannot access local variable 'prompt' where it is not associated with a value
+views 2025-08-28 14:14:52,464 ERROR  LLM Error: cannot access local variable 'prompt' where it is not associated with a value
+views 2025-08-28 14:14:52,464 CRITICAL  LLM Error: cannot access local variable 'prompt' where it is not associated with a value
+views 2025-08-28 14:14:52,466 ERROR cannot access local variable 'e' where it is not associated with a value
+Traceback (most recent call last):
+  File "D:\hrchatbot\hrchatbot\chatbotmodule\views.py", line 242, in post
+    return Response({"status": "error", "message": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                                                       ^
+UnboundLocalError: cannot access local variable 'e' where it is not associated with a value
+views 2025-08-28 14:14:52,466 ERROR cannot access local variable 'e' where it is not associated with a value
+views 2025-08-28 14:14:52,466 CRITICAL cannot access local variable 'e' where it is not associated with a value
+views 2025-08-28 14:15:30,628 INFO SELECT cp.Name 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.PolicyTypeId = 'LeaveCredit';
+views 2025-08-28 14:15:59,339 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.PolicyTypeId = 'Leave Credit Policy' AND cp.IsActive = 1;
+views 2025-08-28 14:16:12,842 INFO SELECT Name 
+FROM CompanyPolicy 
+WHERE PolicyTypeId = 'Leave Credit';
+views 2025-08-28 14:16:36,658 INFO SELECT DOB 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 14:18:52,508 INFO I can't help you with that request.
+views 2025-08-28 14:19:07,499 INFO SELECT TOP 5 cp.Name 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+ORDER BY cp.Name;
+views 2025-08-28 14:22:47,228 INFO SELECT cp.Name, cp.Description
+FROM CompanyPolicy cp
+WHERE cp.Name LIKE '%Automatic Absence%' AND cp.IsActive = 1;
+views 2025-08-28 14:23:25,110 INFO SELECT cp.Name, cp.Description, o.Name AS OrganizationName 
+FROM CompanyPolicy cp 
+JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name = 'Paternity Leave';
+views 2025-08-28 14:25:14,359 INFO SELECT cp.Name 
+FROM CompanyPolicy cp 
+WHERE cp.Name LIKE '%Absent%' AND cp.IsActive = 1;
+views 2025-08-28 14:25:38,468 INFO SELECT cp.Name, cp.Description, cp.IsActive
+FROM CompanyPolicy cp
+WHERE cp.Name LIKE '%Absent%';
+views 2025-08-28 14:26:47,046 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name LIKE '%Work from Home Procedure%' OR cp.Name LIKE '%Work from Home Policy%';
+views 2025-08-28 14:27:04,843 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name LIKE '%Work from Home%';
+views 2025-08-28 14:27:36,007 INFO SELECT cp.Name, cp.Description, cp.IsActive
+FROM CompanyPolicy cp
+JOIN Organizations o ON cp.OrganizationId = o.Id
+WHERE cp.Name = 'Exit Process';
+views 2025-08-28 14:55:36,978 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.Name IN ('Employee Breaks', 'Meals') AND cp.OrganizationId IN (SELECT Id FROM Organizations);
+views 2025-08-28 14:56:00,252 INFO SELECT cp.Name, cp.Description, o.Name as OrganizationName
+FROM CompanyPolicy cp
+JOIN Organizations o ON cp.OrganizationId = o.Id
+WHERE cp.Name = 'Employee Breaks & Meals';
+views 2025-08-28 14:56:25,202 INFO SELECT cp.Name, cp.Description, cp.IsActive, o.Name AS OrganizationName
+FROM CompanyPolicy cp
+JOIN Organizations o ON cp.OrganizationId = o.Id
+WHERE cp.Name = 'Office Timing Policy';
+views 2025-08-28 14:59:57,679 INFO SELECT cp.Name, cp.Description, cp.IsActive, o.Name as OrganizationName
+FROM CompanyPolicy cp
+JOIN Organizations o ON cp.OrganizationId = o.Id
+WHERE cp.Name = 'Exit Process';
+views 2025-08-28 15:07:24,739 INFO SELECT cp.Name, cp.Description, cp.IsActive 
+FROM CompanyPolicy cp 
+WHERE cp.Name = 'Delay';
+views 2025-08-28 15:10:41,693 INFO SELECT cp.Name, cp.Description, cp.IsActive 
+FROM CompanyPolicy cp 
+WHERE cp.Name = 'Delay';
+views 2025-08-28 15:12:02,807 INFO I can't help you with that request.
+views 2025-08-28 15:13:54,998 INFO I can't help you with that request.
+views 2025-08-28 15:29:48,754 INFO I can't help you with that request.
+views 2025-08-28 15:30:46,241 INFO I can't help you with that request.
+views 2025-08-28 15:30:54,966 INFO I can't help you with that request.
+views 2025-08-28 15:31:00,099 INFO SELECT Id 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:31:11,173 INFO I can't help you with that request.
+views 2025-08-28 15:35:57,743 INFO I can't help you with that request.
+views 2025-08-28 15:36:20,676 INFO SELECT * 
+FROM PersonFamilyDetails 
+WHERE PersonId = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:36:50,970 INFO SELECT PersonCode 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:37:04,859 INFO SELECT p.FirstName, p.MiddleName, p.LastName, p.Email, p.DOB, p.ContactNumber, p.BloodGroup, p.Gender 
+FROM Persons p 
+WHERE p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:37:30,779 INFO SELECT EmergencyNumber 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:37:45,431 INFO SELECT ContactNumber 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:38:09,546 INFO I can't help you with that request.
+views 2025-08-28 15:38:22,953 INFO SELECT 
+    PersonCode, 
+    FirstName, 
+    MiddleName, 
+    LastName, 
+    Email, 
+    DOB, 
+    DOJ, 
+    ContactNumber, 
+    EmergencyNumber, 
+    BloodGroup, 
+    MaritalStatus, 
+    Gender, 
+    DepartmentId, 
+    DesignationId, 
+    RoleId, 
+    OrganizationId, 
+    LoginType, 
+    Password, 
+    ReportingPerson, 
+    IsActive, 
+    LastWorkingDay, 
+    IsPolicyConsent, 
+    PolicyConsentDate, 
+    ProfilePicture, 
+    CreatedDate, 
+    CreatedBy, 
+    Otp, 
+    QuickOtp 
+FROM 
+    Persons 
+WHERE 
+    Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:38:48,996 INFO SELECT DOB 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:38:56,048 INFO SELECT DOJ 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:39:14,424 INFO I can't help you with that request.
+views 2025-08-28 15:39:24,393 INFO SELECT DOB FROM Persons WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:39:37,878 INFO SELECT DOJ 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:39:57,056 INFO SELECT pfd.FirstName, pfd.MiddleName, pfd.LastName, pfd.DOB, pfd.ContactNumber 
+FROM PersonFamilyDetails pfd 
+WHERE pfd.PersonId = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A' AND pfd.RelationshipType = 'Parent';
+views 2025-08-28 15:40:14,973 INFO SELECT * 
+FROM PersonFamilyDetails 
+WHERE PersonId = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:40:28,866 INFO SELECT pe.Address 
+FROM PersonEducations pe 
+JOIN Persons p ON pe.PersonId = p.Id 
+WHERE p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:41:37,397 INFO SELECT 
+  pe.CompanyName, pe.StartDate, pe.EndDate, 
+  ped.Degree, ped.PassingYear, ped.Grade, ped.Institution, ped.Address
+FROM 
+  Persons p
+  LEFT JOIN PersonExperiences pe ON p.Id = pe.PersonId
+  LEFT JOIN PersonEducations ped ON p.Id = ped.PersonId
+WHERE 
+  p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:43:47,243 INFO SELECT ps.SkillName 
+FROM PersonSkills ps 
+WHERE ps.PersonId = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:45:44,706 INFO SELECT 
+  p.PersonCode, 
+  p.FirstName, 
+  p.MiddleName, 
+  p.LastName, 
+  p.Email, 
+  p.DOB, 
+  p.ContactNumber, 
+  p.BloodGroup, 
+  p.Gender, 
+  pfd.RelationshipType, 
+  pfd.FirstName AS FamilyFirstName, 
+  pfd.MiddleName AS FamilyMiddleName, 
+  pfd.LastName AS FamilyLastName, 
+  pfd.ContactNumber AS FamilyContactNumber, 
+  pfd.BloodGroup AS FamilyBloodGroup, 
+  pfd.Gender AS FamilyGender, 
+  ps.SkillName, 
+  ps.Proficiency, 
+  ps.LastUsedDate, 
+  ps.TotalExperience
+FROM 
+  Persons p 
+  LEFT JOIN PersonFamilyDetails pfd ON p.Id = pfd.PersonId 
+  LEFT JOIN PersonSkills ps ON p.Id = ps.PersonId 
+WHERE 
+  p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:46:24,863 INFO I can't help you with that request.
+views 2025-08-28 15:46:40,530 INFO SELECT Id 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:47:03,114 INFO SELECT p2.FirstName, p2.LastName 
+FROM Persons p1 
+JOIN Persons p2 ON p1.ReportingPerson = p2.Id 
+WHERE p1.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:47:12,291 INFO SELECT ReportingPerson 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:47:23,671 INFO 
+SELECT P2.PersonCode 
+FROM Persons P1 
+JOIN Persons P2 ON P1.ReportingPerson = P2.Id 
+WHERE P1.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+
+views 2025-08-28 15:47:49,100 INFO I can't help you with that request.
+views 2025-08-28 15:48:34,118 INFO 
+SELECT pfd.*
+FROM Persons p
+JOIN PersonFamilyDetails pfd ON p.Id = pfd.PersonId
+WHERE p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A' AND pfd.PersonId = p.ReportingPerson;
+
+views 2025-08-28 15:48:45,315 INFO SELECT p2.FirstName, p2.LastName 
+FROM Persons p1 
+JOIN Persons p2 ON p1.ReportingPerson = p2.Id 
+WHERE p1.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-28 15:48:57,459 INFO 
+SELECT 
+    p.PersonCode, 
+    p.FirstName, 
+    p.MiddleName, 
+    p.LastName, 
+    p.Email, 
+    p.DOB, 
+    p.DOJ, 
+    p.ContactNumber, 
+    p.EmergencyNumber, 
+    p.BloodGroup, 
+    p.MaritalStatus, 
+    p.Gender, 
+    p.DepartmentId, 
+    p.DesignationId, 
+    p.RoleId, 
+    p.OrganizationId, 
+    p.LoginType, 
+    p.Password, 
+    p.LastWorkingDay, 
+    p.IsPolicyConsent, 
+    p.PolicyConsentDate, 
+    p.ProfilePicture, 
+    p.CreatedDate, 
+    p.CreatedBy, 
+    p.Otp, 
+    p.QuickOtp
+FROM 
+    Persons p
+WHERE 
+    p.Id = (SELECT ReportingPerson FROM Persons WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A');
+
+views 2025-08-28 15:49:40,200 INFO Here is the SQL query that answers the user's question:
+
+
+SELECT p.* 
+FROM Persons p 
+WHERE p.Id = (SELECT ReportingPerson 
+              FROM Persons 
+              WHERE FirstName = 'Nehal' AND LastName = 'Patel');
+
+views 2025-08-28 15:50:16,265 INFO 
+SELECT pfd.FirstName, pfd.MiddleName, pfd.LastName, pfd.DOB, pfd.ContactNumber, pfd.BloodGroup, pfd.Gender, 
+       pe.CompanyName, pe.StartDate, pe.EndDate, 
+       ps.SkillName, ps.Proficiency, ps.LastUsedDate, ps.TotalExperience
+FROM PersonFamilyDetails pfd
+JOIN PersonExperiences pe ON pfd.PersonId = pe.PersonId
+JOIN PersonSkills ps ON pfd.PersonId = ps.PersonId
+WHERE pfd.FirstName = 'Nehal' AND pfd.LastName = 'Patel';
+
+views 2025-08-28 15:50:38,555 INFO SELECT * FROM Persons WHERE PersonCode = 'sky0003';
+views 2025-08-28 15:51:50,846 INFO SELECT * FROM Persons WHERE PersonCode = 'sky0013';
+views 2025-08-28 15:52:09,394 INFO SELECT * 
+FROM Persons 
+WHERE PersonCode = 'sky0093';
+views 2025-08-28 15:53:12,850 INFO Here is the SQL query that answers the user's question:
+
+
+SELECT p.FirstName, p.MiddleName, p.LastName, p.DOB, p.ContactNumber, p.BloodGroup, p.Gender, 
+pf.RelationshipType, pf.FirstName, pf.MiddleName, pf.LastName, pf.DOB, pf.ContactNumber, pf.BloodGroup, pf.Gender
+FROM Persons p
+JOIN PersonFamilyDetails pf ON p.Id = pf.PersonId
+WHERE p.PersonCode = 'sky0003';
+
+views 2025-08-28 15:53:28,021 INFO Here is the SQL query:
+
+
+SELECT pfd.FirstName, pfd.MiddleName, pfd.LastName, pfd.DOB, pfd.ContactNumber, pfd.BloodGroup, pfd.Gender
+FROM PersonFamilyDetails pfd
+JOIN Persons p ON pfd.PersonId = p.Id
+WHERE p.PersonCode = 'sky0003';
+
+views 2025-08-28 15:53:35,991 INFO SELECT * FROM Persons WHERE PersonCode = 'sky0003';
+views 2025-08-28 16:04:35,772 INFO SELECT * FROM Persons WHERE PersonCode = 'sky0088';
+views 2025-08-28 16:06:23,396 INFO SELECT Name FROM Organizations;
+views 2025-08-28 16:06:41,058 INFO SELECT * FROM Organizations WHERE IsActive = 1;
+views 2025-08-28 16:06:57,777 INFO SELECT * FROM Organizations WHERE IsActive = 1;
+views 2025-08-28 16:07:37,471 INFO SELECT * FROM Organizations
+views 2025-08-28 16:09:31,940 INFO SELECT cp.Name 
+FROM CompanyPolicy cp 
+WHERE cp.PolicyTypeId = 'Leave' AND cp.IsActive = 1;
+views 2025-08-28 16:09:57,078 INFO SELECT cp.Name 
+FROM CompanyPolicy cp 
+JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.PolicyTypeId = 'Leave' AND o.IsActive = 1 AND cp.IsActive = 1;
+views 2025-08-28 16:10:14,832 INFO SELECT cp.Name 
+FROM CompanyPolicy cp 
+WHERE cp.PolicyTypeId = 'Holiday' AND cp.IsActive = 1;
+views 2025-08-28 16:10:41,515 INFO SELECT cp.Name
+FROM CompanyPolicy cp
+JOIN Organizations o ON cp.OrganizationId = o.Id
+WHERE cp.IsActive = 0;
+views 2025-08-28 16:11:45,877 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.IsActive = 0;
+views 2025-08-28 16:12:31,915 INFO SELECT cp.Name
+FROM CompanyPolicy cp
+JOIN Organizations o ON cp.OrganizationId = o.Id
+WHERE cp.IsActive = 0;
+views 2025-08-28 16:13:25,205 INFO SELECT CP.Id, CP.Name, CP.Description
+FROM CompanyPolicy CP
+WHERE CP.IsActive = 0;
+views 2025-08-28 16:13:33,742 INFO 
+SELECT cp.Id, cp.OrganizationId, cp.Name, cp.PolicyTypeId, cp.Description
+FROM CompanyPolicy cp
+WHERE cp.IsActive = 0;
+
+views 2025-08-28 16:14:24,305 INFO SELECT cp.Name, cp.Description, cp.PolicyTypeId, o.Name as OrganizationName
+FROM CompanyPolicy cp
+JOIN Organizations o ON cp.OrganizationId = o.Id
+WHERE cp.PolicyTypeId = 'Expense';
+views 2025-08-28 16:14:35,495 INFO SELECT cp.Name, cp.Description, cp.PolicyTypeId, o.Name as OrganizationName
+FROM CompanyPolicy cp
+JOIN Organizations o ON cp.OrganizationId = o.Id
+WHERE cp.PolicyTypeId = 'Expense';
+views 2025-08-28 16:15:20,441 INFO SELECT CP.Id, CP.OrganizationId, CP.Name, CP.PolicyTypeId, CP.Description
+FROM CompanyPolicy CP
+INNER JOIN Organizations O ON CP.OrganizationId = O.Id
+WHERE CP.PolicyTypeId = 'Expense';
+views 2025-08-28 16:16:06,812 INFO SELECT CP.Id, CP.OrganizationId, CP.Name, CP.PolicyTypeId, CP.Description
+FROM CompanyPolicy CP
+INNER JOIN Organizations O ON CP.OrganizationId = O.Id
+WHERE CP.PolicyTypeId = 'Expense';
+views 2025-08-28 16:16:37,920 INFO 
+SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.Name = 'Marriage Leave' AND cp.IsActive = 1;
+
+views 2025-08-28 16:16:55,927 INFO 
+SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.Name = 'Marriage Leave' AND cp.IsActive = 1;
+
+views 2025-08-28 16:17:19,264 INFO SELECT cp.*
+FROM CompanyPolicy cp
+WHERE cp.Name = 'Marriage Leave' AND cp.IsActive = 1;
+views 2025-08-28 16:17:32,791 INFO SELECT cp.*
+FROM CompanyPolicy cp
+WHERE cp.Name = 'Marriage Leave' AND cp.IsActive = 1;
+views 2025-08-28 16:18:10,565 INFO SELECT cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.Name = 'Maternity Leave' AND cp.IsActive = 1;
+views 2025-08-28 16:18:52,469 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name LIKE '%Paternity Leave%' OR cp.Description LIKE '%Paternity Leave%';
+views 2025-08-28 16:19:42,859 INFO SELECT cp.Name, cp.Description, cp.PolicyTypeId, o.Name as OrganizationName
+FROM CompanyPolicy cp
+JOIN Organizations o ON cp.OrganizationId = o.Id
+WHERE cp.PolicyTypeId = 'Expense';
+views 2025-08-28 16:20:06,398 INFO SELECT cp.Name, cp.PolicyTypeId, cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.PolicyTypeId = 'Expense Policy';
+views 2025-08-28 16:21:01,970 INFO SELECT cp.Id, cp.Name, cp.Description, cp.IsActive, o.Name as OrganizationName
+FROM CompanyPolicy cp
+JOIN Organizations o ON cp.OrganizationId = o.Id
+WHERE cp.Name LIKE '%Expense%'
+views 2025-08-28 16:21:56,147 INFO I can't help you with that request.
+views 2025-08-28 16:22:04,983 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name LIKE '%Office timing%';
+views 2025-08-28 16:22:33,703 INFO I can't help you with that request.
+views 2025-08-28 16:22:41,717 INFO I can't help you with that request.
+views 2025-08-28 16:22:50,652 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name LIKE '%Office time%' AND cp.IsActive = 1;
+views 2025-08-28 16:23:11,343 INFO I can't help you with that request.
+views 2025-08-28 16:23:20,975 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name LIKE '%Office timing%';
+views 2025-08-28 16:23:35,337 INFO I can't help you with that request.
+views 2025-08-28 16:23:40,138 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name LIKE '%Office timing%';
+views 2025-08-28 16:24:05,519 INFO I can't help you with that request.
+views 2025-08-28 16:24:41,892 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name LIKE '%Office timing%';
+views 2025-08-28 16:25:11,948 ERROR JSON parse error - Invalid control character at: line 3 column 22 (char 81)
+Traceback (most recent call last):
+  File "D:\hrchatbot\hrchatbot\.venv\Lib\site-packages\rest_framework\parsers.py", line 66, in parse
+    return json.load(decoded_stream, parse_constant=parse_constant)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\hrchatbot\hrchatbot\.venv\Lib\site-packages\rest_framework\utils\json.py", line 31, in load
+    return json.load(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+        cls=cls, object_hook=object_hook,
+        parse_float=parse_float, parse_int=parse_int,
+        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Invalid control character at: line 3 column 22 (char 81)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\hrchatbot\hrchatbot\chatbotmodule\views.py", line 227, in post
+    serializer=ChatbotSerializer(data=request.data)
+                                      ^^^^^^^^^^^^
+  File "D:\hrchatbot\hrchatbot\.venv\Lib\site-packages\rest_framework\request.py", line 221, in data
+    self._load_data_and_files()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\hrchatbot\hrchatbot\.venv\Lib\site-packages\rest_framework\request.py", line 284, in _load_data_and_files
+    self._data, self._files = self._parse()
+                              ~~~~~~~~~~~^^
+  File "D:\hrchatbot\hrchatbot\.venv\Lib\site-packages\rest_framework\request.py", line 359, in _parse
+    parsed = parser.parse(stream, media_type, self.parser_context)
+  File "D:\hrchatbot\hrchatbot\.venv\Lib\site-packages\rest_framework\parsers.py", line 68, in parse
+    raise ParseError('JSON parse error - %s' % str(exc))
+rest_framework.exceptions.ParseError: JSON parse error - Invalid control character at: line 3 column 22 (char 81)
+views 2025-08-28 16:25:12,021 ERROR JSON parse error - Invalid control character at: line 3 column 22 (char 81)
+views 2025-08-28 16:25:12,021 CRITICAL JSON parse error - Invalid control character at: line 3 column 22 (char 81)
+views 2025-08-28 16:25:29,246 INFO SELECT cp.Id, cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.IsActive = 0;
+views 2025-08-28 16:26:46,813 INFO SELECT cp.Id, cp.Name, cp.Description, cp.IsActive, o.Name AS OrganizationName
+FROM CompanyPolicy cp
+JOIN Organizations o ON cp.OrganizationId = o.Id
+WHERE cp.Name LIKE '%Delay%';
+views 2025-08-28 16:27:19,673 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.IsActive = 1 AND cp.Name LIKE '%Leave Credit%';
+views 2025-08-28 16:27:53,615 INFO SELECT cp.Id, cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name LIKE '%expense%' OR cp.Description LIKE '%expense%';
+views 2025-08-28 16:28:05,304 INFO SELECT cp.Id, cp.OrganizationId, cp.Name, cp.Description, cp.IsActive 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name LIKE '%expense%';
+views 2025-08-28 16:28:18,923 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.Name LIKE '%Exit%' AND cp.IsActive = 1;
+views 2025-08-28 16:34:54,795 INFO SELECT cp.Name, cp.Description 
+FROM CompanyPolicy cp 
+WHERE cp.Name LIKE '%Exit%' AND cp.IsActive = 1;
+views 2025-08-28 16:35:14,640 INFO SELECT cp.Id, cp.Name, cp.Description, cp.IsActive 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id;
+views 2025-08-28 16:35:23,543 INFO SELECT cp.Id, cp.OrganizationId, cp.Name, cp.Description, cp.IsActive 
+FROM CompanyPolicy cp 
+WHERE cp.IsActive = 1 AND cp.Name LIKE '%leave%';
+views 2025-08-28 16:35:48,056 INFO SELECT cp.Id, cp.OrganizationId, cp.Name, cp.Description, cp.IsActive, cp.CreatedBy, cp.CreatedAt, cp.ModifiedBy, cp.ModifiedAt 
+FROM CompanyPolicy cp 
+INNER JOIN Organizations o ON cp.OrganizationId = o.Id 
+WHERE cp.Name LIKE '%Expense%';
+views 2025-08-28 16:42:44,003 INFO SELECT cp.Id, cp.OrganizationId, cp.Name, cp.Description, cp.IsActive 
+FROM CompanyPolicy cp 
+WHERE cp.IsActive = 1 AND cp.Name LIKE '%leave%';
+views 2025-08-28 16:45:39,577 INFO SELECT cp.Id, cp.OrganizationId, cp.Name, cp.Description, cp.IsActive
+FROM CompanyPolicy cp
+WHERE cp.Name = 'Exit Process';

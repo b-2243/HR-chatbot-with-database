@@ -1,0 +1,168 @@
+views 2025-08-18 09:36:29,734 INFO SELECT Id 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-18 09:36:49,177 INFO SELECT * 
+FROM PersonFamilyDetails 
+WHERE PersonId = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-18 09:37:00,842 INFO I can't help you with that request.
+views 2025-08-18 09:37:20,416 INFO SELECT o.Name, o.Code, o.Email, o.Title, o.Logo, o.Favicon, o.Description, o.PrimaryColorCode, o.SecondaryColorCode, o.CreatedAt, o.IsActive, o.PackageId, o.PackageExpiryDate, o.IsTimer, 
+       p.Name AS PolicyTypeName, 
+       cp.Name AS CompanyPolicyName, cp.Description AS CompanyPolicyDescription, cp.IsActive AS CompanyPolicyIsActive
+FROM Organizations o
+JOIN CompanyPolicy cp ON o.Id = cp.OrganizationId
+JOIN PolicyType p ON cp.PolicyTypeId = p.Id;
+views 2025-08-18 09:37:20,499 ERROR Error code: 413 - {'error': {'message': 'Request too large for model `llama3-70b-8192` in organization `org_01jp1vyc51f4wbfhwr8ka11aft` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 9082, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+Traceback (most recent call last):
+  File "D:\hrchatbot\hrchatbot\chatbotmodule\views.py", line 264, in post
+    human_readable_response = llm.invoke(prompt)
+  File "d:\hrchatbot\hrchatbot\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 395, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "d:\hrchatbot\hrchatbot\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 980, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\hrchatbot\hrchatbot\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 799, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "d:\hrchatbot\hrchatbot\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1045, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "d:\hrchatbot\hrchatbot\.venv\Lib\site-packages\langchain_groq\chat_models.py", line 557, in _generate
+    response = self.client.create(messages=message_dicts, **params)
+  File "d:\hrchatbot\hrchatbot\.venv\Lib\site-packages\groq\resources\chat\completions.py", line 368, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/openai/v1/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<40 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "d:\hrchatbot\hrchatbot\.venv\Lib\site-packages\groq\_base_client.py", line 1232, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\hrchatbot\hrchatbot\.venv\Lib\site-packages\groq\_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+groq.APIStatusError: Error code: 413 - {'error': {'message': 'Request too large for model `llama3-70b-8192` in organization `org_01jp1vyc51f4wbfhwr8ka11aft` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 9082, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+views 2025-08-18 09:37:20,616 ERROR Error code: 413 - {'error': {'message': 'Request too large for model `llama3-70b-8192` in organization `org_01jp1vyc51f4wbfhwr8ka11aft` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 9082, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+views 2025-08-18 09:37:20,616 CRITICAL Error code: 413 - {'error': {'message': 'Request too large for model `llama3-70b-8192` in organization `org_01jp1vyc51f4wbfhwr8ka11aft` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 9082, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+views 2025-08-18 09:37:32,131 INFO 
+SELECT 
+  p.PersonCode, p.FirstName, p.MiddleName, p.LastName, p.Email, p.DOB, p.DOJ, p.ContactNumber, p.EmergencyNumber, p.BloodGroup, p.MaritalStatus, p.Gender, 
+  p.DepartmentId, p.DesignationId, p.RoleId, p.OrganizationId, p.LoginType, p.Password, p.ReportingPerson, p.IsActive, p.LastWorkingDay, p.IsPolicyConsent, 
+  p.PolicyConsentDate, p.ProfilePicture, p.CreatedDate, p.CreatedBy, p.Otp, p.QuickOtp,
+  ps.SkillName, ps.Proiciency, ps.LastUsedDate, ps.TotalExperience,
+  pf.RelationshipType, pf.FirstName, pf.MiddleName, pf.LastName, pf.DOB, pf.ContactNumber, pf.BloodGroup, pf.Gender
+FROM 
+  Persons p
+  LEFT JOIN PersonSkills ps ON p.Id = ps.PersonId
+  LEFT JOIN PersonFamilyDetails pf ON p.Id = pf.PersonId
+WHERE 
+  p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+
+views 2025-08-18 09:37:44,324 INFO 
+SELECT 
+  p.PersonCode, p.FirstName, p.MiddleName, p.LastName, p.Email, p.DOB, p.DOJ, p.ContactNumber, p.EmergencyNumber, p.BloodGroup, p.MaritalStatus, p.Gender, 
+  p.DepartmentId, p.DesignationId, p.RoleId, p.OrganizationId, p.LoginType, p.Password, p.ReportingPerson, p.IsActive, p.LastWorkingDay, p.IsPolicyConsent, 
+  p.PolicyConsentDate, p.ProfilePicture, p.CreatedDate, p.CreatedBy, p.Otp, p.QuickOtp,
+  ps.SkillName, ps.Proiciency, ps.LastUsedDate, ps.TotalExperience,
+  pf.RelationshipType, pf.FirstName, pf.MiddleName, pf.LastName, pf.DOB, pf.ContactNumber, pf.BloodGroup, pf.Gender
+FROM 
+  Persons p
+  LEFT JOIN PersonSkills ps ON p.Id = ps.PersonId
+  LEFT JOIN PersonFamilyDetails pf ON p.Id = pf.PersonId
+WHERE 
+  p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+
+views 2025-08-18 09:38:07,847 INFO SELECT pe.Degree, pe.PassingYear, pe.Grade, pe.Institution, pe.Address
+FROM PersonEducations pe
+JOIN Persons p ON pe.PersonId = p.Id
+WHERE p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-18 09:38:18,254 INFO 
+SELECT pe.*
+FROM PersonExperiences pe
+JOIN Persons p ON pe.PersonId = p.Id
+WHERE p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+
+views 2025-08-18 09:38:31,010 INFO SELECT Email 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-18 09:38:39,446 INFO I can't help you with that request.
+views 2025-08-18 09:38:47,264 INFO I can't help you with that request.
+views 2025-08-18 09:39:05,864 INFO SELECT p2.FirstName, p2.LastName 
+FROM Persons p1 
+JOIN Persons p2 ON p1.ReportingPerson = p2.Id 
+WHERE p1.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+views 2025-08-18 09:39:18,608 INFO I can't help you with that request.
+views 2025-08-18 09:39:38,867 INFO I can't help you with that request.
+views 2025-08-18 09:40:02,947 INFO I can't help you with that request.
+views 2025-08-18 09:40:11,395 INFO 
+SELECT 
+  p.PersonCode, 
+  p.FirstName, 
+  p.MiddleName, 
+  p.LastName, 
+  p.Email, 
+  p.DOB, 
+  p.DOJ, 
+  p.ContactNumber, 
+  p.EmergencyNumber, 
+  p.BloodGroup, 
+  p.MaritalStatus, 
+  p.Gender, 
+  p.DepartmentId, 
+  p.DesignationId, 
+  p.RoleId, 
+  p.OrganizationId, 
+  p.LoginType, 
+  p.Password, 
+  p.ReportingPerson, 
+  p.IsActive, 
+  p.LastWorkingDay, 
+  p.IsPolicyConsent, 
+  p.PolicyConsentDate, 
+  p.ProfilePicture, 
+  p.CreatedDate, 
+  p.CreatedBy, 
+  p.Otp, 
+  p.QuickOtp,
+  ps.SkillName, 
+  ps.Proiciency, 
+  ps.LastUsedDate, 
+  ps.TotalExperience,
+  pfd.RelationshipType, 
+  pfd.FirstName, 
+  pfd.MiddleName, 
+  pfd.LastName, 
+  pfd.DOB, 
+  pfd.ContactNumber, 
+  pfd.BloodGroup, 
+  pfd.Gender
+FROM 
+  Persons p
+  LEFT JOIN PersonSkills ps ON p.Id = ps.PersonId
+  LEFT JOIN PersonFamilyDetails pfd ON p.Id = pfd.PersonId
+WHERE 
+  p.Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+
+views 2025-08-18 09:40:50,405 INFO 
+SELECT * 
+FROM Persons 
+WHERE Id = 'AFFBC428-C29B-44FA-82F0-FC764CF57A5A';
+

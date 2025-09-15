@@ -1,0 +1,6 @@
+CompanyPolicy: Id (PK), OrganizationId, Name, Description, IsActive, CreatedBy, CreatedAt, ModifiedBy, ModifiedAt
+  - OrganizationId → Organizations.Id (foreign key)
+
+Organizations: Id (PK), Name, Code, Email, Title, Logo, Favicon, Description, PrimaryColorCode, SecondaryColorCode, CreatedAt, IsActive, PackageId, PackageExpiryDate, IsTimer
+  - PackageId → Package.Id (foreign key)
+
