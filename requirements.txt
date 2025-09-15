@@ -1,0 +1,7 @@
+streamlit
+langchain
+sentence-transformers
+langchain-groq
+langchain-community
+pyodbc
+faiss-cpu
