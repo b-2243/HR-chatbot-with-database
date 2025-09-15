@@ -1,0 +1,445 @@
+__EFMigrationsHistory: MigrationId (PK), ProductVersion
+
+Addresses: Id (PK), PersonId, AddressType, AddressLine1, AddressLine2, AddressLine3, StateId, CountryId, CityId
+  - CityId → Cities.Id (foreign key)
+  - CountryId → Countries.Id (foreign key)
+  - StateId → States.Id (foreign key)00p
+  - PersonId → Persons.Id (foreign key)
+
+Appraisal: Id (PK), EmployeeId, AppraisalAmount, OldCTC, AppraisalDate
+  - EmployeeId → Persons.Id (foreign key)
+
+AssetCarryToHome: Id (PK), AssetId, UserId, StartDate, EndDate, Reason
+  - AssetId → Assets.Id (foreign key)
+  - UserId → Persons.Id (foreign key)
+
+Assets: Id (PK), CategoryId, AssetId, AssetName, Description, Brand, Status, IsActive, CreatedAt, UpdatedAt, CreatedBy, UpdatedBy
+  - CategoryId → Categories.Id (foreign key)
+
+AssetsAssignment: Id (PK), AssetId, UserId, AssignmentDate, ReturnDate, Remark, AssignBy
+  - UserId → Persons.Id (foreign key)
+  - AssetId → Assets.Id (foreign key)
+
+AssetSpecifications: Id (PK), SpecificationName, SpecificationValue, AssetId
+  - AssetId → Assets.Id (foreign key)
+
+AttendanceDetails: Id (PK), AttendanceId, CheckInOutTime, Status, IpAddress, Duration, BreakTime, CreatedBy
+  - AttendanceId → Attendances.Id (foreign key)
+
+AttendanceRequest: Id (PK), PersonId, LeaveType, RequestDate, StartDate, EndDate, StartHalf, EndHalf, InTime, OutTime, Status, Reason, RejectReason, AttendanceDetailId, ActualTime, RequestType
+  - AttendanceDetailId → AttendanceDetails.Id (foreign key)
+  - PersonId → Persons.Id (foreign key)
+
+Attendances: Id (PK), PersonId, Date, OnBreak, Counter
+  - PersonId → Persons.Id (foreign key)
+
+auth_group: id (PK), name
+
+auth_group_permissions: id (PK), group_id, permission_id
+  - group_id → auth_group.id (foreign key)
+  - permission_id → auth_permission.id (foreign key)
+
+auth_permission: id (PK), name, content_type_id, codename
+  - content_type_id → django_content_type.id (foreign key)
+
+auth_user: id (PK), password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined
+
+auth_user_groups: id (PK), user_id, group_id
+  - group_id → auth_group.id (foreign key)
+  - user_id → auth_user.id (foreign key)
+
+auth_user_user_permissions: id (PK), user_id, permission_id
+  - permission_id → auth_permission.id (foreign key)
+  - user_id → auth_user.id (foreign key)
+
+BankDetails: Id (PK), PersonId, AccountName, AccountNumber, BankName, BankBranch, IFSCCode
+  - PersonId → Persons.Id (foreign key)
+
+Bonus: Id (PK), Title, CalculationType, Amount, Status, OrganizationId
+
+BroadcastNotification: Id (PK), OrganizationId, Name, Description, IsActive, StartDate, EndDate
+  - OrganizationId → Organizations.Id (foreign key)
+
+BulkDocuments: Id (PK), PersonId, DocumentName, DocumentPath, UploadedOn, UploadedBy
+  - PersonId → Persons.Id (foreign key)
+
+Categories: Id (PK), CategoryId, CategoryName
+
+CategorySpecifications: Id (PK), SpecificationName, CategoryId
+  - CategoryId → Categories.Id (foreign key)
+
+Cities: Id (PK), CityName, StateId
+  - StateId → States.Id (foreign key)
+
+Client: Id (PK), ClientName, ClientEmail, ClientContactNumber, ExternalStakeholders, CreatedDate, CreatedBy
+
+CompanyAddress: Id (PK), Address, City, State, Country, Zipcode, PersonId
+  - PersonId → CompanyPersons.Id (foreign key)
+
+CompanyPersons: Id (PK), Name, Email, PhoneNumber, Status, IsPublic, Description, AlternateNumber, WebSite
+
+CompanyPolicy: Id (PK), OrganizationId, Name, PolicyTypeId, Description, IsActive, CreatedBy, CreatedAt, ModifiedBy, ModifiedAt
+  - OrganizationId → Organizations.Id (foreign key)
+  - PolicyTypeId → PolicyType.Id (foreign key)
+
+CompanySocialMedias: Id (PK), Facebook, Twitter, Linkedin, Skype, Whatsapp, Instagram, PersonId
+  - PersonId → CompanyPersons.Id (foreign key)
+
+ContactAddress: Id (PK), Address, City, State, Country, Zipcode, ContactPersonId
+  - ContactPersonId → ContactPerson.Id (foreign key)
+
+ContactPerson: Id (PK), FirstName, LastName, Email, PhoneNumber, Status, IsPublic, Description, AlternateNumber
+
+ContactSocialMedia: Id (PK), Facebook, Twitter, Linkedin, Skype, Whatsapp, Instagram, ContactPersonId
+  - ContactPersonId → ContactPerson.Id (foreign key)
+
+Countries: Id (PK), CountryName
+
+Deduction: Id (PK), OrganizationId, Name, CalculationType, CalculationAmount, IsActive, IsApplyRule, ConditionAmount, Condition, CreatedBy, CreatedDate
+  - OrganizationId → Organizations.Id (foreign key)
+  - CreatedBy → Persons.Id (foreign key)
+
+Departments: Id (PK), DepartmentName
+
+Designation: Id (PK), Name, Description, Level, IsActive, OrganizationId
+  - OrganizationId → Organizations.Id (foreign key)
+
+django_admin_log: id (PK), action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id
+  - content_type_id → django_content_type.id (foreign key)
+  - user_id → auth_user.id (foreign key)
+
+django_content_type: id (PK), app_label, model
+
+django_migrations: id (PK), app, name, applied
+
+django_session: session_key (PK), session_data, expire_date
+
+DocumentTemplate: Id (PK), Name, Subject, Body, OrganizationId
+  - OrganizationId → Organizations.Id (foreign key)
+
+Earning: Id (PK), OrganizationId, Name, CalculationType, CalculationAmount, IsActive, IsApplyRule, ConditionAmount, Condition, CreatedBy, CreatedDate
+  - OrganizationId → Organizations.Id (foreign key)
+  - CreatedBy → Persons.Id (foreign key)
+
+EmailSetting: Id (PK), OrganizationId, MailType, SMTPFromEmail, SMTPPassword, SMTPFromName, SendGridAPIKey, SendGridSenderEmail, SendGridName, ZeptoBounceAddress, ZeptoAPIKey, ZeptoFromEmail, ZeptoFromName, ZeptoSMTPEmailAPI, IsDefault
+  - OrganizationId → Organizations.Id (foreign key)
+
+EmployeeInsurance: Id (PK), PersonsId, InsuranceId, OrganizationsId, StartDate, NextRenewalDate, Amount, CreatedAt, CreatedBy, ModifyBy, ModifyAt, DeletedAt, DeletedBy
+  - InsuranceId → Insurance.Id (foreign key)
+  - OrganizationsId → Organizations.Id (foreign key)
+  - PersonsId → Persons.Id (foreign key)
+
+EmployeeLeaveDetail: Id (PK), PersonId, CutLeave, CarryForwardLeave, CompOff, Year, Month, PaidOff, WeekOff, PresentDays, AbsentDays, PaidLeave, PaidDays, PendingLeave
+  - PersonId → Persons.Id (foreign key)
+
+EmployeeLeaves: Id, PersonId, LeaveType, StartDate, EndDate, StartHalf, EndHalf, Reason, Approval, ApprovedBy, ApprovedOn, RejectionReason, LeaveFile, LeaveRequestDate
+  - PersonId → Persons.Id (foreign key)
+
+EmployeeLoan: Id (PK), LoanAmount, LoanTenure, MonthlyAmount, IsActive, PersonId, OrganizationsId, CreatedAt, CreatedBy, ModifyAt, ModifyBy, DeletedAt, DeletedBy, Reason, StartDate, EndDate, LoanStatus, Remarks, ApprovedBy
+  - PersonId → Persons.Id (foreign key)
+  - OrganizationsId → Organizations.Id (foreign key)
+
+EmployeePersonalInsurance: Id (PK), CompanyName, PlanName, PersonId, CoverAmount, InsuranceType
+  - PersonId → Persons.Id (foreign key)
+
+EmployeeSalaryDeductionDetail: Id (PK), EmployeeSalaryDetailId, DeductionId, Amount
+  - DeductionId → Deduction.Id (foreign key)
+  - EmployeeSalaryDetailId → EmployeeSalaryDetail.Id (foreign key)
+
+EmployeeSalaryDetail: Id (PK), PersonId, ActualSalary, PaidSalary, Year, Month
+  - PersonId → Persons.Id (foreign key)
+
+EmployeeSalaryEarningDetail: Id (PK), EmployeeSalaryDetailId, EarningId, Amount
+  - EarningId → Earning.Id (foreign key)
+  - EmployeeSalaryDetailId → EmployeeSalaryDetail.Id (foreign key)
+
+EmployeeTimesheetDetails: Id (PK), EmployeeTimesheetId, TimesheetDate, TimeType, Regulation, TotalHours, Comments
+  - EmployeeTimesheetId → EmployeeTimesheets.Id (foreign key)
+
+EmployeeTimesheetDetails_bkup: Id, EmployeeTimesheetId, TimesheetDate, TimeType, Regulation, TotalHours, Comments
+
+EmployeeTimesheetDetails_History: Id, EmployeeTimesheetId, TimesheetDate, TimeType, Regulation, TotalHours, Comments
+
+EmployeeTimesheets: Id (PK), PersonId, WeekDay, Comments, Status, ApprovedBy, LastModifiedAt
+  - ApprovedBy → Persons.Id (foreign key)
+  - PersonId → Persons.Id (foreign key)
+
+employeetimesheets_bkup: Id, PersonId, WeekDay, Comments, Status, ApprovedBy, LastModifiedAt
+
+EmployeeTimesheets_History: Id, PersonId, WeekDay, Comments, Status, ApprovedBy, LastModifiedAt
+
+Expense: Id (PK), ExpenseDate, Amount, Description, Bill, TypeId, Vendor, Status, ExpenseBy, PaidBy, Remarks
+  - TypeId → ExpenseType.Id (foreign key)
+  - ExpenseBy → Persons.Id (foreign key)
+  - PaidBy → Persons.Id (foreign key)
+
+ExpenseType: Id (PK), TypeName
+
+Goal: Id (PK), GoalTypeId, PersonId, Subject, StartDate, EndDate, Description, Status, Progress
+  - GoalTypeId → GoalType.Id (foreign key)
+  - PersonId → Persons.Id (foreign key)
+
+GoalType: Id (PK), Type, Description, Status
+
+HolidayMasters: Id (PK), Date, Description, Optional
+
+Inquiry: Id (PK), Name, PhoneNumber, Email, Country, Requirement, Designation, Organization, InquiryFor, DemoRequest, CreatedDate
+
+Insurance: Id (PK), CompanyName, PlanType, CoverAmount, CoveragePeriod, Cover, OrganizationsId, CreatedAt, CreatedBy, ModifyAt, ModifyBy, DeletedAt, DeletedBy
+  - OrganizationsId → Organizations.Id (foreign key)
+
+Invoice: Id (PK), InvoiceDate, Amount, Description, Invoice, ProjectId, Status
+  - ProjectId → ProjectManagement.Id (foreign key)
+
+JobInquiry: Id (PK), FullName, Email, PositionOfInterest, PhoneNumber, Location, Message, Remarks, Date, IsActive, CVFile, JobInquiryStatus, ResumeText
+
+MeetingRoom: Id (PK), Name, Capacity, Amenities, OrganizationsId, IsActive
+  - OrganizationsId → Organizations.Id (foreign key)
+
+Modules: Id (PK), Module, Description, ModuleTypeId
+  - ModuleTypeId → ModuleType.Id (foreign key)
+
+ModuleType: Id (PK), TypeName, ModuleOrder
+
+Notification: Id (PK), UserId, Title, IsRead, Description, NotificationType
+  - UserId → Persons.Id (foreign key)
+
+OrganizationAuthentication: Id, OrganizationId, Authenticationtype, ApiKey, ApiSecretKey, IsDisplay
+
+OrganizationProfile: Id (PK), OrganizationId, Detail
+  - OrganizationId → Organizations.Id (foreign key)
+
+Organizations: Id (PK), Name, Code, Email, Title, Logo, Favicon, Description, PrimaryColorCode, SecondaryColorCode, CreatedAt, IsActive, PackageId, PackageExpiryDate, IsTimer
+  - PackageId → Package.Id (foreign key)
+
+OrganizationSettings: Id (PK), OrganizationId, Title, TitleKey, Value, SerialNumber
+  - OrganizationId → Organizations.Id (foreign key)
+
+OrganizationStorage: Id (PK), OrganizationId, StorageType, APIKey, APISecret, APIURL
+  - OrganizationId → Organizations.Id (foreign key)
+
+Overtime: Id (PK), PersonId, OTDate, OTHour, Status, Description, ApprovedBy
+  - ApprovedBy → Persons.Id (foreign key)
+  - PersonId → Persons.Id (foreign key)
+
+Package: Id (PK), Name, Price, AllowUser
+
+PackageDuration: Id (PK), Duration, Discount
+
+PackageModule: Id (PK), PackageId, ModuleId
+  - ModuleId → Modules.Id (foreign key)
+  - PackageId → Package.Id (foreign key)
+
+Payment: Id (PK), OrganizationId, PaymentDate, PackageId, PackageDurationId, Price
+  - OrganizationId → Organizations.Id (foreign key)
+  - PackageId → Package.Id (foreign key)
+  - PackageDurationId → PackageDuration.Id (foreign key)
+
+PayRoll: Id (PK), PersonId, AnnualCTC, IsActive, CreatedDate, CreatedBy
+  - PersonId → Persons.Id (foreign key)
+  - CreatedBy → Persons.Id (foreign key)
+
+PayRollDetail: Id (PK), PayrollId, EarningId, Amount
+  - EarningId → Earning.Id (foreign key)
+  - PayrollId → PayRoll.Id (foreign key)
+
+PersonDocument: Id (PK), PersonId, DocumentNumber, ExpiryDate, Remarks, DocumentType, Path, Description
+  - PersonId → Persons.Id (foreign key)
+
+PersonEducations: Id (PK), PersonId, Degree, PassingYear, Grade, Institution, Address
+  - PersonId → Persons.Id (foreign key)
+
+PersonExperiences: Id (PK), PersonId, CompanyName, StartDate, EndDate
+  - PersonId → Persons.Id (foreign key)
+
+PersonFamilyDetails: Id (PK), PersonId, RelationshipType, FirstName, MiddleName, LastName, DOB, ContactNumber, BloodGroup, Gender
+
+Persons: Id (PK), PersonCode, FirstName, MiddleName, LastName, Email, DOB, DOJ, ContactNumber, EmergencyNumber, BloodGroup, MaritalStatus, Gender, DepartmentId, DesignationId, RoleId, OrganizationId, LoginType, Password, ReportingPerson, IsActive, LastWorkingDay, IsPolicyConsent, PolicyConsentDate, ProfilePicture, CreatedDate, CreatedBy, Otp, QuickOtp, IsCaptured, IsTrained
+  - DepartmentId → Departments.Id (foreign key)
+  - DesignationId → Designation.Id (foreign key)
+  - OrganizationId → Organizations.Id (foreign key)
+  - RoleId → Roles.Id (foreign key)
+
+PersonSkills: Id (PK), PersonId, SkillName, Proficiency, LastUsedDate, TotalExperience
+  - PersonId → Persons.Id (foreign key)
+
+PolicyType: Id (PK), Name, IsActive, CreatedAt, ModifiedAt
+
+Poll: Id (PK), Title, Status, EndDate, DepartmentId, CreatedBy, CreatedDate
+  - DepartmentId → Departments.Id (foreign key)
+  - CreatedBy → Persons.Id (foreign key)
+
+PollChoice: Id (PK), PollId, Choice
+  - PollId → Poll.Id (foreign key)
+
+PollUserChoice: Id (PK), PollChoiceId, UserId
+  - UserId → Persons.Id (foreign key)
+  - PollChoiceId → PollChoice.Id (foreign key)
+
+ProjectAttachments: Id (PK), ProjectId, Name, Path
+  - ProjectId → ProjectManagement.Id (foreign key)
+
+ProjectCategory: Id (PK), Name, Description, IsActive
+
+ProjectManagement: Id (PK), OrganizationId, ProjectName, ProjectCode, Description, StartDate, EndDate, ProjectManager, ProjectOwner, TechnologySpecification, Status, Priority, ProjectCategoryId, Notes, IsActive, ClientId, CreatedDate, CreatedBy
+  - ClientId → Client.Id (foreign key)
+  - OrganizationId → Organizations.Id (foreign key)
+  - ProjectManager → Persons.Id (foreign key)
+  - ProjectOwner → Persons.Id (foreign key)
+  - ProjectCategoryId → ProjectCategory.Id (foreign key)
+  - Id → ProjectManagement.Id (foreign key)
+
+ProjectMembers: Id (PK), ProjectId, PersonId, StartDate, EndDate, IsActive, DesignationId
+  - DesignationId → Designation.Id (foreign key)
+  - PersonId → Persons.Id (foreign key)
+  - ProjectId → ProjectManagement.Id (foreign key)
+
+Promotion: Id (PK), EmployeeId, OldDesignationid, NewDesignationId, PromotionDate
+  - OldDesignationid → Designation.Id (foreign key)
+  - NewDesignationId → Designation.Id (foreign key)
+  - EmployeeId → Persons.Id (foreign key)
+
+Question: Id (PK), DepartmentId, QuestionType, Questions, IsActive
+  - DepartmentId → Departments.Id (foreign key)
+
+Resignation: Id (PK), EmployeeId, Reason, NoticeDate, ResignationDate, CreatedBy, CreatedOn, ApprovedBy, ApprovedOn, CancellationReason, CancellationDate
+  - EmployeeId → Persons.Id (foreign key)
+
+Review: Id (PK), DepartmentId, Title, Type, ReviewDate, IsActive, DueOn
+  - DepartmentId → Departments.Id (foreign key)
+
+ReviewQuestion: Id (PK), ReviewId, QuestionId
+  - QuestionId → Question.Id (foreign key)
+  - ReviewId → Review.Id (foreign key)
+
+RolePermission: Id (PK), RoleId, ModuleId, CanView, CanAdd, CanEdit, CanDelete
+  - ModuleId → Modules.Id (foreign key)
+  - RoleId → Roles.Id (foreign key)
+
+Roles: Id (PK), Name, Description, OrganizationId, CreatedAt, UpdatedAt, DeletedAt
+
+RoomBooking: Id (PK), PersonId, MeetingRoomId, StartDate, EndDate, Reason, IsRecurring, RecurringStartDate, RecurringEndDate, StartTime, EndTime
+  - MeetingRoomId → MeetingRoom.Id (foreign key)
+  - PersonId → Persons.Id (foreign key)
+
+ShiftManagement: Id (PK), Name, StartTime, EndTime, RotationDays, IsRotation, LastRotationDate, MaxStartTime, MinStartTime, MaxEndTime, MinEndTime, IsActive, RotationNumber
+
+SMSSetting: Id (PK), OrganizationId, TwillioAccountSid, TwillioAuthtoken, TwillioFromName
+  - OrganizationId → Organizations.Id (foreign key)
+
+Sprint: Id (PK), SprintCode, ProjectId, Week, CreatedBy, CreatedDate, Status, StartDate, EndDate, SprintName
+  - CreatedBy → Persons.Id (foreign key)
+  - ProjectId → ProjectManagement.Id (foreign key)
+
+SprintTaskMapping: SprintId, TaskId, Id (PK)
+  - SprintId → Sprint.Id (foreign key)
+  - TaskId → TaskManagement.Id (foreign key)
+
+States: Id (PK), StateName, CountryId
+  - CountryId → Countries.Id (foreign key)
+
+StickyNotes: Id (PK), PersonId, Date, Description
+  - PersonId → Persons.Id (foreign key)
+
+Suggestion: Id (PK), Subject, Comment, Attachment, Status, CreatedBy, CreatedOn, Remarks, ApprovedBy, ApprovedOn, SuggestionType, IsApproved
+
+TaskAssigment: Id (PK), TaskId, AssignedId, CreatedDate, CreatedBy
+  - AssignedId → Persons.Id (foreign key)
+  - CreatedBy → Persons.Id (foreign key)
+  - TaskId → TaskManagement.Id (foreign key)
+
+TaskAttachment: Id (PK), TaskId, FilePath, CreatedDate, CreatedBy
+  - CreatedBy → Persons.Id (foreign key)
+  - TaskId → TaskManagement.Id (foreign key)
+
+TaskConversion: Id (PK), TaskId, Comment, CreatedBy, CreatedDate
+  - CreatedBy → Persons.Id (foreign key)
+  - TaskId → TaskManagement.Id (foreign key)
+
+TaskConversionAttachment: Id (PK), TaskConversionId, FilePath
+  - TaskConversionId → TaskConversion.Id (foreign key)
+
+TaskFollowers: Id (PK), TaskId, EmployeeId, CreatedBy, CreatedDate
+  - EmployeeId → Persons.Id (foreign key)
+  - CreatedBy → Persons.Id (foreign key)
+  - TaskId → TaskManagement.Id (foreign key)
+
+TaskManagement: Id (PK), ProjectId, Subject, Description, Priority, Status, DueDate, CreatedBy, CreatedDate, TaskCode, TaskType
+  - CreatedBy → Persons.Id (foreign key)
+  - ProjectId → ProjectManagement.Id (foreign key)
+
+TaskTimeline: Id (PK), TaskId, TimelineType, Comment, CreatedDate
+  - TaskId → TaskManagement.Id (foreign key)
+
+Template: Id (PK), Name, Subject, Body, OrganizationId
+
+Termination: Id (PK), EmployeeId, TerminationType, Reason, NoticeDate, TerminationDate
+  - EmployeeId → Persons.Id (foreign key)
+
+Ticket: Id (PK), Subject, Description, Priority, Status, TicketCode, ClientId, ProjectId, DueDate, CreatedDate, CreatedBy
+  - ClientId → Client.Id (foreign key)
+  - CreatedBy → Persons.Id (foreign key)
+  - ProjectId → ProjectManagement.Id (foreign key)
+
+TicketAssignment: Id (PK), TicketId, AssignedId, CreatedDate, CreatedBy
+  - AssignedId → Persons.Id (foreign key)
+  - CreatedBy → Persons.Id (foreign key)
+  - TicketId → Ticket.Id (foreign key)
+
+TicketAttachment: Id (PK), TicketId, FilePath, CreatedDate, CreatedBy
+  - CreatedBy → Persons.Id (foreign key)
+  - TicketId → Ticket.Id (foreign key)
+
+TicketConversion: Id (PK), TicketId, Comment, CreatedBy, CreatedDate
+  - CreatedBy → Persons.Id (foreign key)
+  - TicketId → Ticket.Id (foreign key)
+
+TicketConversionAttachment: Id (PK), TicketConversionId, FilePath
+  - TicketConversionId → TicketConversion.Id (foreign key)
+
+TicketFollowers: Id (PK), TicketId, EmployeeId, CreatedBy, CreatedDate
+  - EmployeeId → Persons.Id (foreign key)
+  - CreatedBy → Persons.Id (foreign key)
+  - TicketId → Ticket.Id (foreign key)
+
+TicketTimeline: Id (PK), TicketId, TimelineType, Comment, CreatedDate
+  - TicketId → Ticket.Id (foreign key)
+
+ToDoList: Id (PK), PersonId, Title, Description, DueDate, IsImportant, IsCompleted
+  - PersonId → Persons.Id (foreign key)
+
+UserBonus: Id (PK), EmployeeId, BonusId, Amount, BonusDate
+  - BonusId → Bonus.Id (foreign key)
+  - EmployeeId → Persons.Id (foreign key)
+
+UserDocumentTemplate: Id (PK), UserId, DocumentTemplateId, CreatedDate, CreatedBy, UserTemplate
+  - DocumentTemplateId → DocumentTemplate.Id (foreign key)
+  - UserId → Persons.Id (foreign key)
+  - CreatedBy → Persons.Id (foreign key)
+
+UserPermission: Id (PK), PersonId, RoleId, ModuleId, CanView, CanAdd, CanEdit, CanDelete
+  - ModuleId → Modules.Id (foreign key)
+  - PersonId → Persons.Id (foreign key)
+  - RoleId → Roles.Id (foreign key)
+
+UserReview: Id (PK), ReviewId, ReviewerId, EmployeeId, ApplyDate, DueDate
+  - EmployeeId → Persons.Id (foreign key)
+  - ReviewerId → Persons.Id (foreign key)
+  - ReviewId → Review.Id (foreign key)
+
+UserReviewDetail: Id (PK), ReviewerId, ReviewDate, EmployeeId, Status, ReviewId
+  - ReviewerId → Persons.Id (foreign key)
+  - EmployeeId → Persons.Id (foreign key)
+  - ReviewId → Review.Id (foreign key)
+
+UserReviewQuestionAnswerDetail: Id (PK), UserReviewDetailId, ReviewQuestionId, Answer
+  - ReviewQuestionId → ReviewQuestion.Id (foreign key)
+  - UserReviewDetailId → UserReviewDetail.Id (foreign key)
+
+UserShift: Id (PK), UserId, ShiftId
+  - UserId → Persons.Id (foreign key)
+  - ShiftId → ShiftManagement.Id (foreign key)
+
+Warning: Id (PK), EmployeeId, CompanyPolicyId, CreatedBy, CreatedAt, Comment
+  - CompanyPolicyId → CompanyPolicy.Id (foreign key)
+  - EmployeeId → Persons.Id (foreign key)
